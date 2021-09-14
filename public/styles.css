@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background-color: hsl(185, 41%, 84%);
+  font-family: "Space Mono", monospace;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 95vh;
+}
+
+.app {
+  width: 60%;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: hsl(0, 0%, 100%);
+  border-radius: 30px;
+  height: 60vh;
+}
+
+.table {
+  width: 45%;
+  height: 84%;
+  border-radius: 20px;
+  padding: 10px 25px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+input {
+  background-color: hsl(180, 3%, 94%);
+  border: none;
+  width: 90%;
+  height: 5vh;
+  padding-right: 10px;
+}
+
+.btn {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.btn button {
+  background-color: hsl(183, 100%, 15%);
+  color: hsl(0, 0%, 100%);
+  padding: 5px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  font-size: 15px;
+}
+
+.width {
+  width: 85px;
+  height: 5vh;
+}
+
+.amount {
+  background-color: hsl(183, 100%, 15%);
+  width: 45%;
+  border-radius: 20px;
+  height: 84%;
+  padding: 40px 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.amount button {
+  width: 60%;
+  height: 5vh;
+  background-color: hsl(186, 14%, 43%);
+  border: none;
+  border-radius: 5px;
+}
+
+.amount .total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+}
