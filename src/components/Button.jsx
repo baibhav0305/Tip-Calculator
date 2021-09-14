@@ -2,7 +2,7 @@ import React from 'react'
 
 function Button(props) {
     return (
-        <button className="width" >{props.percent}</button>
+        <button className="width">{props.percent}</button>
     )
 }
 
