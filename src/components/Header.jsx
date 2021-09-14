@@ -1,10 +1,9 @@
 import React from 'react'
-import Icon from './Icon';
 
 function Header() {
     return (
         <div className="header">
-            <Icon img="/images/logo.png"/>
+            <img src="/images/logo.png" alt="logo" />
         </div>
     )
 }

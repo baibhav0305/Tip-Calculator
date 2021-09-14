@@ -1,8 +1,5 @@
 import React, { useState } from 'react'
-import Button from './Button';
 import Icon from './Icon';
-// import Table from './Table';
-// import Amount from './Amount';
 
 function Container() {
     const [bill, setBill] = useState("")
@@ -33,7 +30,7 @@ function Container() {
     }
 
     const handleTipButton = (e) => {
-        //console.log(e.target.value)
+        console.log("clicked")
         let value = e.target.value
 
         if (value === "5") {
@@ -121,11 +118,9 @@ function Container() {
     }
 
     const CalculateTip = (billNum, tipNum, peopleNum) => {
-        //console.log("calculating tip...")
         setResetBtn(true)
-        //console.log(`Bill: ${billNum}, Tip: ${tipNum}, Nº People ${peopleNum}`)
         if (billNum && tipNum && peopleNum) {
-            //console.log(`Bill: ${bill}, Tip: ${tipPercentage}, Nº People ${numberOfPeople}`)
+
             let Localbill = parseFloat(billNum)
             let LocalTip = parseFloat(tipNum)
             let LocalPeople = parseInt(peopleNum)
@@ -161,21 +156,21 @@ function Container() {
         <div className="container">
             {/* <Table />
             <Amount /> */}
-            <div className="table">
+            <div className="table column">
                 <div className="info">
-                    <p>Bill</p>
+                    <p className="info-label">Bill</p>
                     <input type="text" placeholder="0" style={{ textAlign: "right" }} value={bill} onChange={(e) => handleBillInput(e)} />
                     <Icon img="/images/icon-dollar.png" />
                 </div>
                 <div className="info">
-                    <p>Select tip %</p>
+                    <p className="info-label">Select tip %</p>
                     <div className="btn">
-                        <Button percent="5%" className={button_selected_5 ? "tip-button tip-button-selected" : "tip-button"} onClick={(e) => handleTipButton(e)} value={5} />
-                        <Button percent="10%" className={button_selected_10 ? "tip-button tip-button-selected" : "tip-button"} onClick={(e) => handleTipButton(e)} value={10} />
-                        <Button percent="15%" className={button_selected_15 ? "tip-button tip-button-selected" : "tip-button"} onClick={(e) => handleTipButton(e)} value={15} />
-                        <Button percent="25%" className={button_selected_25 ? "tip-button tip-button-selected" : "tip-button"} onClick={(e) => handleTipButton(e)} value={25} />
-                        <Button percent="50%" className={button_selected_50 ? "tip-button tip-button-selected" : "tip-button"} onClick={(e) => handleTipButton(e)} value={50} />
-                        <input className="tip-option field-input"
+                        <button className={button_selected_5 ? "tip-btn tip-btn-active" : "tip-btn"} onClick={(e) => handleTipButton(e)} value={5} >5%</button>
+                        <button className={button_selected_10 ? "tip-btn tip-btn-active" : "tip-btn"} onClick={(e) => handleTipButton(e)} value={10} >10%</button>
+                        <button className={button_selected_15 ? "tip-btn tip-btn-active" : "tip-btn"} onClick={(e) => handleTipButton(e)} value={15} >15%</button>
+                        <button className={button_selected_25 ? "tip-btn tip-btn-active" : "tip-btn"} onClick={(e) => handleTipButton(e)} value={25} >25%</button>
+                        <button className={button_selected_50 ? "tip-btn tip-btn-active" : "tip-btn"} onClick={(e) => handleTipButton(e)} value={50} >50%</button>
+                        <input className="custom-input"
                             value={customTip}
                             onChange={(e) => handleCustomTipButton(e)}
                             placeholder="Custom"
@@ -184,25 +179,27 @@ function Container() {
                     </div>
                 </div>
                 <div className="info">
-                    <p>Number of people</p>
+                    <p className="info-label">Number of people</p>
                     <input type="text" placeholder="0" style={{ textAlign: "right" }} value={numberOfPeople} onChange={(e) => handleNumberOfPeople(e)} />
                     <Icon img="/images/icon-person.png" />
                 </div>
             </div>
 
-            <div className="amount" style={{ color: "hsl(189, 41%, 97%)" }}>
-                <div className="total">
-                    <p>Tip Amount <br /> <span style={{ color: "hsl(184, 14%, 56%)" }}>/person</span></p>
-                    <h1 className="val" style={{ color: "hsl(172, 67%, 45%)" }}>{tipAmount}</h1>
-                </div>
-                <div className="total">
-                    <p>Total <br /> <span style={{ color: "hsl(184, 14%, 56%)" }}>/person</span></p>
-                    <h1 className="val" style={{ color: "hsl(172, 67%, 45%)" }}>{totalAmount}</h1>
+            <div className="amount column" style={{ color: "hsl(189, 41%, 97%)" }}>
+                <div className="values">
+                    <div className="total">
+                        <p style={{ fontSize: "15px" }}>Tip Amount <br /> <span style={{ color: "#778b8b", fontWeight: "700", fontSize: "13px" }}>/person</span></p>
+                        <p className="val" style={{ color: "hsl(172, 67%, 45%)" }}>{tipAmount}</p>
+                    </div>
+                    <div className="total">
+                        <p style={{ fontSize: "15px" }}>Total <br /> <span style={{ color: "#778b8b", fontWeight: "700", fontSize: "13px" }}>/person</span></p>
+                        <p className="val" style={{ color: "hsl(172, 67%, 45%)" }}>{totalAmount}</p>
+                    </div>
                 </div>
                 <button className={resetBtn ? "reset active" : "reset notActive"}
-                    onClick={() => handleReset()} style={{ color: "hsl(183, 100%, 15%)" }}><h4> RESET </h4></button>
+                    onClick={() => handleReset()} style={{ color: "hsl(183, 100%, 15%)", width: "100%" }}>RESET</button>
             </div>
-        </div>
+        </div >
     )
 }
 
